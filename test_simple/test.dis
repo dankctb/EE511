@@ -1,0 +1,248 @@
+
+test.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <__isr_vector>:
+   0:	00010000 	andeq	r0, r1, r0
+   4:	000000d1 	ldrdeq	r0, [r0], -r1
+   8:	000000f9 	strdeq	r0, [r0], -r9
+   c:	000000fb 	strdeq	r0, [r0], -fp
+	...
+  2c:	000000fd 	strdeq	r0, [r0], -sp
+	...
+  38:	000000ff 	strdeq	r0, [r0], -pc	; <UNPREDICTABLE>
+  3c:	00000101 	andeq	r0, r0, r1, lsl #2
+  40:	00000103 	andeq	r0, r0, r3, lsl #2
+  44:	00000105 	andeq	r0, r0, r5, lsl #2
+  48:	00000107 	andeq	r0, r0, r7, lsl #2
+  4c:	00000109 	andeq	r0, r0, r9, lsl #2
+  50:	0000010b 	andeq	r0, r0, fp, lsl #2
+  54:	0000010d 	andeq	r0, r0, sp, lsl #2
+  58:	0000010f 	andeq	r0, r0, pc, lsl #2
+  5c:	00000111 	andeq	r0, r0, r1, lsl r1
+  60:	00000113 	andeq	r0, r0, r3, lsl r1
+  64:	00000115 	andeq	r0, r0, r5, lsl r1
+  68:	00000117 	andeq	r0, r0, r7, lsl r1
+  6c:	00000119 	andeq	r0, r0, r9, lsl r1
+  70:	0000011b 	andeq	r0, r0, fp, lsl r1
+  74:	0000011d 	andeq	r0, r0, sp, lsl r1
+  78:	0000011f 	andeq	r0, r0, pc, lsl r1
+  7c:	00000121 	andeq	r0, r0, r1, lsr #2
+  80:	00000123 	andeq	r0, r0, r3, lsr #2
+  84:	00000125 	andeq	r0, r0, r5, lsr #2
+  88:	00000127 	andeq	r0, r0, r7, lsr #2
+  8c:	00000129 	andeq	r0, r0, r9, lsr #2
+  90:	0000012b 	andeq	r0, r0, fp, lsr #2
+  94:	0000012d 	andeq	r0, r0, sp, lsr #2
+  98:	0000012f 	andeq	r0, r0, pc, lsr #2
+  9c:	00000131 	andeq	r0, r0, r1, lsr r1
+  a0:	00000133 	andeq	r0, r0, r3, lsr r1
+  a4:	00000135 	andeq	r0, r0, r5, lsr r1
+  a8:	00000137 	andeq	r0, r0, r7, lsr r1
+  ac:	00000139 	andeq	r0, r0, r9, lsr r1
+  b0:	0000013b 	andeq	r0, r0, fp, lsr r1
+  b4:	0000013d 	andeq	r0, r0, sp, lsr r1
+  b8:	0000013f 	andeq	r0, r0, pc, lsr r1
+  bc:	00000141 	andeq	r0, r0, r1, asr #2
+  c0:	00010000 	andeq	r0, r1, r0
+  c4:	00010000 	andeq	r0, r1, r0
+  c8:	00000168 	andeq	r0, r0, r8, ror #2
+  cc:	00001168 	andeq	r1, r0, r8, ror #2
+
+000000d0 <Reset_Handler>:
+  d0:	2000      	movs	r0, #0
+  d2:	2100      	movs	r1, #0
+  d4:	2200      	movs	r2, #0
+  d6:	2300      	movs	r3, #0
+  d8:	2400      	movs	r4, #0
+  da:	2500      	movs	r5, #0
+  dc:	2600      	movs	r6, #0
+  de:	2700      	movs	r7, #0
+  e0:	46b8      	mov	r8, r7
+  e2:	46b9      	mov	r9, r7
+  e4:	46ba      	mov	sl, r7
+  e6:	46bb      	mov	fp, r7
+  e8:	46bc      	mov	ip, r7
+  ea:	46be      	mov	lr, r7
+  ec:	e7ff      	b.n	ee <asm>
+
+000000ee <asm>:
+  ee:	2101      	movs	r1, #1
+  f0:	1840      	adds	r0, r0, r1
+  f2:	f000 f826 	bl	142 <main>
+  f6:	e7fa      	b.n	ee <asm>
+
+000000f8 <NMI_Handler>:
+  f8:	e7fe      	b.n	f8 <NMI_Handler>
+
+000000fa <HardFault_Handler>:
+  fa:	e7fe      	b.n	fa <HardFault_Handler>
+
+000000fc <SVC_Handler>:
+  fc:	e7fe      	b.n	fc <SVC_Handler>
+
+000000fe <PendSV_Handler>:
+  fe:	e7fe      	b.n	fe <PendSV_Handler>
+
+00000100 <SysTick_Handler>:
+ 100:	e7fe      	b.n	100 <SysTick_Handler>
+
+00000102 <IRQ_Handler0>:
+ 102:	e7fe      	b.n	102 <IRQ_Handler0>
+
+00000104 <IRQ_Handler1>:
+ 104:	e7fe      	b.n	104 <IRQ_Handler1>
+
+00000106 <IRQ_Handler2>:
+ 106:	e7fe      	b.n	106 <IRQ_Handler2>
+
+00000108 <IRQ_Handler3>:
+ 108:	e7fe      	b.n	108 <IRQ_Handler3>
+
+0000010a <IRQ_Handler4>:
+ 10a:	e7fe      	b.n	10a <IRQ_Handler4>
+
+0000010c <IRQ_Handler5>:
+ 10c:	e7fe      	b.n	10c <IRQ_Handler5>
+
+0000010e <IRQ_Handler6>:
+ 10e:	e7fe      	b.n	10e <IRQ_Handler6>
+
+00000110 <IRQ_Handler7>:
+ 110:	e7fe      	b.n	110 <IRQ_Handler7>
+
+00000112 <IRQ_Handler8>:
+ 112:	e7fe      	b.n	112 <IRQ_Handler8>
+
+00000114 <IRQ_Handler9>:
+ 114:	e7fe      	b.n	114 <IRQ_Handler9>
+
+00000116 <IRQ_Handler10>:
+ 116:	e7fe      	b.n	116 <IRQ_Handler10>
+
+00000118 <IRQ_Handler11>:
+ 118:	e7fe      	b.n	118 <IRQ_Handler11>
+
+0000011a <IRQ_Handler12>:
+ 11a:	e7fe      	b.n	11a <IRQ_Handler12>
+
+0000011c <IRQ_Handler13>:
+ 11c:	e7fe      	b.n	11c <IRQ_Handler13>
+
+0000011e <IRQ_Handler14>:
+ 11e:	e7fe      	b.n	11e <IRQ_Handler14>
+
+00000120 <IRQ_Handler15>:
+ 120:	e7fe      	b.n	120 <IRQ_Handler15>
+
+00000122 <IRQ_Handler16>:
+ 122:	e7fe      	b.n	122 <IRQ_Handler16>
+
+00000124 <IRQ_Handler17>:
+ 124:	e7fe      	b.n	124 <IRQ_Handler17>
+
+00000126 <IRQ_Handler18>:
+ 126:	e7fe      	b.n	126 <IRQ_Handler18>
+
+00000128 <IRQ_Handler19>:
+ 128:	e7fe      	b.n	128 <IRQ_Handler19>
+
+0000012a <IRQ_Handler20>:
+ 12a:	e7fe      	b.n	12a <IRQ_Handler20>
+
+0000012c <IRQ_Handler21>:
+ 12c:	e7fe      	b.n	12c <IRQ_Handler21>
+
+0000012e <IRQ_Handler22>:
+ 12e:	e7fe      	b.n	12e <IRQ_Handler22>
+
+00000130 <IRQ_Handler23>:
+ 130:	e7fe      	b.n	130 <IRQ_Handler23>
+
+00000132 <IRQ_Handler24>:
+ 132:	e7fe      	b.n	132 <IRQ_Handler24>
+
+00000134 <IRQ_Handler25>:
+ 134:	e7fe      	b.n	134 <IRQ_Handler25>
+
+00000136 <IRQ_Handler26>:
+ 136:	e7fe      	b.n	136 <IRQ_Handler26>
+
+00000138 <IRQ_Handler27>:
+ 138:	e7fe      	b.n	138 <IRQ_Handler27>
+
+0000013a <IRQ_Handler28>:
+ 13a:	e7fe      	b.n	13a <IRQ_Handler28>
+
+0000013c <IRQ_Handler29>:
+ 13c:	e7fe      	b.n	13c <IRQ_Handler29>
+
+0000013e <IRQ_Handler30>:
+ 13e:	e7fe      	b.n	13e <IRQ_Handler30>
+
+00000140 <IRQ_Handler31>:
+ 140:	e7fe      	b.n	140 <IRQ_Handler31>
+
+00000142 <main>:
+ 142:	b580      	push	{r7, lr}
+ 144:	b084      	sub	sp, #16
+ 146:	af00      	add	r7, sp, #0
+ 148:	2305      	movs	r3, #5
+ 14a:	60fb      	str	r3, [r7, #12]
+ 14c:	2307      	movs	r3, #7
+ 14e:	60bb      	str	r3, [r7, #8]
+ 150:	68fa      	ldr	r2, [r7, #12]
+ 152:	68bb      	ldr	r3, [r7, #8]
+ 154:	18d3      	adds	r3, r2, r3
+ 156:	607b      	str	r3, [r7, #4]
+ 158:	2300      	movs	r3, #0
+ 15a:	0018      	movs	r0, r3
+ 15c:	46bd      	mov	sp, r7
+ 15e:	b004      	add	sp, #16
+ 160:	bd80      	pop	{r7, pc}
+
+Disassembly of section .data:
+
+00000162 <__data_start__>:
+	...
+
+Disassembly of section .heap:
+
+00000168 <__HeapBase>:
+	...
+
+Disassembly of section .comment:
+
+00000000 <.comment>:
+   0:	3a434347 	bcc	10d0d24 <__StackLimit+0x10c0d24>
+   4:	35312820 	ldrcc	r2, [r1, #-2080]!	; 0xfffff7e0
+   8:	2e30313a 	mrccs	1, 1, r3, cr0, cr10, {1}
+   c:	30322d33 	eorscc	r2, r2, r3, lsr sp
+  10:	302e3132 	eorcc	r3, lr, r2, lsr r1
+  14:	29342d37 	ldmdbcs	r4!, {r0, r1, r2, r4, r5, r8, sl, fp, sp}
+  18:	2e303120 	rsfcssp	f3, f0, f0
+  1c:	20312e33 	eorscs	r2, r1, r3, lsr lr
+  20:	31323032 	teqcc	r2, r2, lsr r0
+  24:	31323630 	teqcc	r2, r0, lsr r6
+  28:	65722820 	ldrbvs	r2, [r2, #-2080]!	; 0xfffff7e0
+  2c:	7361656c 	cmnvc	r1, #108, 10	; 0x1b000000
+  30:	Address 0x0000000000000030 is out of bounds.
+
+
+Disassembly of section .ARM.attributes:
+
+00000000 <.ARM.attributes>:
+   0:	00002941 	andeq	r2, r0, r1, asr #18
+   4:	61656100 	cmnvs	r5, r0, lsl #2
+   8:	01006962 	tsteq	r0, r2, ror #18
+   c:	0000001f 	andeq	r0, r0, pc, lsl r0
+  10:	2d533605 	ldclcs	6, cr3, [r3, #-20]	; 0xffffffec
+  14:	0c06004d 	stceq	0, cr0, [r6], {77}	; 0x4d
+  18:	01094d07 	tsteq	r9, r7, lsl #26
+  1c:	01140412 	tsteq	r4, r2, lsl r4
+  20:	03170115 	tsteq	r7, #1073741829	; 0x40000005
+  24:	011a0118 	tsteq	sl, r8, lsl r1
+  28:	Address 0x0000000000000028 is out of bounds.
+
