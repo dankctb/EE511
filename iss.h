@@ -16,28 +16,29 @@
 
 
 // Registers
-uint32_t R[16];
+extern uint32_t R[16];
 
-struct APSR {
+typedef struct APSR {
   int N;
   int Z;
   int C;
   int V;
-} APSR;
+} APSR_t;
 
+extern APSR_t APSR;
 
 #define SP R[13]
 #define LR R[14]
 #define PC R[15]
 
 #define MEM_SIZE  0x4000000
-uint8_t *mem;
+extern uint8_t *mem;
 
 
 // BRANCH should be set to 1 whenever branch occurs
-int branch;
+extern int branch;
 //instruction address for EXE pipeline stage(PC-4)
-uint32_t EXE_PC;
+extern uint32_t EXE_PC;
 
 uint16_t fetch(void);
 void process(uint16_t inst);
