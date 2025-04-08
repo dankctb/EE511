@@ -111,7 +111,7 @@ void process(uint16_t inst)
   }
   else if (INST(15, 12) == 0x4) {
     // Miscellaneous 16-bit instructions
-    if (INST(11) == 0) {
+    if (INST_(11) == 0) {
       if (INST(10, 8) == 0x0)
         add_sp_immediate(inst);
       else if (INST(10, 8) == 0x1)
