@@ -73,7 +73,81 @@ void write_halfword(uint32_t addr, uint32_t value);
 void write_byte(uint32_t addr, uint32_t value);
 
 /* your code here */
-// Instruction processing functions
+// Instruction processing functions, just arrange in alphabetical order
+/* Register operations */
+void mov_register(uint16_t inst);
+void mov_immediate(uint16_t inst);
+void mvn_register(uint16_t inst);
+
+/* Arithmetic operations */
+void add_register(uint16_t inst);
+void add_immediate(uint16_t inst);
+void add_sp_register(uint16_t inst);
+void add_sp_immediate(uint16_t inst);
+void adc(uint16_t inst);
+void sub_register(uint16_t inst);
+void sub_immediate(uint16_t inst);
+void sbc_register(uint16_t inst);
+void rsb_immediate(uint16_t inst);
+void mul(uint16_t inst);
+void neg(uint16_t inst);
+
+/* Logical operations */
+void and_register(uint16_t inst);
+void bic_register(uint16_t inst);
+void eor_register(uint16_t inst);
+void orr_register(uint16_t inst);
+void tst_register(uint16_t inst);
+
+/* Shift operations */
+void asr_immediate(uint16_t inst);
+void asr_register(uint16_t inst);
+void lsl_immediate(uint16_t inst);
+void lsl_register(uint16_t inst);
+void lsr_immediate(uint16_t inst);
+void lsr_register(uint16_t inst);
+void ror_register(uint16_t inst);
+
+/* Compare operations */
+void cmp_immediate(uint16_t inst);
+void cmp_register(uint16_t inst);
+void cmn_register(uint16_t inst);
+
+/* Memory operations */
+void ldr_immediate(uint16_t inst);
+void ldr_literal(uint16_t inst);
+void ldr_register(uint16_t inst);
+void ldrb_immediate(uint16_t inst);
+void ldrb_register(uint16_t inst);
+void ldrh_immediate(uint16_t inst);
+void ldrh_register(uint16_t inst);
+void ldrsb_register(uint16_t inst);
+void ldrsh_register(uint16_t inst);
+void str_immediate(uint16_t inst);
+void str_register(uint16_t inst);
+void strb_immediate(uint16_t inst);
+void strb_register(uint16_t inst);
+void strh_immediate(uint16_t inst);
+void strh_register(uint16_t inst);
+void push(uint16_t inst);
+void pop(uint16_t inst);
+void ldm(uint16_t inst);
+void stm(uint16_t inst);
+
+/* Branch operations */
+void b_conditional(uint16_t inst);
+void bx(uint16_t inst);
+
+/* Miscellaneous operations */
+void adr(uint16_t inst);
+void rev(uint16_t inst);
+void rev16(uint16_t inst);
+void revsh(uint16_t inst);
+void sxtb(uint16_t inst);
+void sxth(uint16_t inst);
+void uxtb(uint16_t inst);
+void uxth(uint16_t inst);
+
 void adc(uint16_t inst);
 void add_immediate(uint16_t inst);
 void add_register(uint16_t inst);
