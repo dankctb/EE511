@@ -143,6 +143,7 @@ void adr(uint16_t inst);
 void rev(uint16_t inst);
 void rev16(uint16_t inst);
 void revsh(uint16_t inst);
+
 void sxtb(uint16_t inst);
 void sxth(uint16_t inst);
 void uxtb(uint16_t inst);
