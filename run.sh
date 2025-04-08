@@ -1,3 +1,4 @@
+# for WSL, not test on Ubuntu GCC, hope not different :)
 gcc -c core.c
 gcc -c inst.c
 gcc -c memory.c
