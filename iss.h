@@ -76,6 +76,7 @@ void write_byte(uint32_t addr, uint32_t value);
 
 /*********************************************************
 Notes : 
+Running on WSL ubuntu 22.04
 1. Skip (CPS, YIELD, WFE, WFI, SEV, MSR, MRS) which are privileged/system instructions 
 2. Name of the function is same as the name of the instruction in the .pdf
 3. Order of instructions : as in the Cortex-M0 Instruction Set Encoding .pdf

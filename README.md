@@ -1,6 +1,6 @@
 # ARM Cortex-M0 Instruction Set Simulator
 
-This is term project 1 of EE511 in KAIST Spring 2025, which requires implementing an instruction set simulator for the ARM Cortex-M0 processor in thread mode. 
+This is term project 1 of EE511, KAIST Spring 2025, which requires implementing an instruction set simulator for the ARM Cortex-M0 processor in thread mode. 
 
 ## Simulator Limitations
 

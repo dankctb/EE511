@@ -16,6 +16,7 @@ void nop(uint16_t inst);
 
 void process(uint16_t inst)
 /*********************************************************
+ * Running on WSL ubuntu 22.04
  * Decodes each 16-bit Thumb instruction and calls the appropriate handler function based on its opcode pattern.
  * 
  * Note: 
