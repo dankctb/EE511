@@ -10,12 +10,17 @@ The simulator only implements thread mode operations as specified in the project
 - SVC instructions
 - Privilege mode operations
 
+In addition, as requirement, all the relevant code should be put in ’thumb.c’, and ‘iss.h’ so these files are quite long ...
+
 ## Running the Simulator
 
 To run the simulator with the test program:
 
 ```bash
-./run.sh
+cd test_simple/
+bash compile.sh
+cd ..
+bash run.sh
 ```
 
 This will execute the test.c program through the simulator and show the results.
@@ -83,84 +88,4 @@ Viewing memory contents:
 Request: v 10000
 10000 : 00010000
 ```
-
-## Test Program and Instruction Validation
-
-The test program (test.c) systematically exercises each instruction type implemented in the simulator. Below is a validation guide for each instruction category:
-
-### Data Processing Instructions
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| ADDS | `c = a + b` | 5 + 7 = 12 |
-| SUBS | `c = a - b` | 5 - 7 = -2 |
-| MULS | `c = a * b` | 5 * 7 = 35 |
-| ANDS | `c = a & b` | 5 & 7 = 5 |
-| ORRS | `c = a \| b` | 5 \| 7 = 7 |
-| EORS | `c = a ^ b` | 5 ^ 7 = 2 |
-| MVNS | `c = ~a` | ~5 = -6 |
-| NEGS/RSB | `c = -a` | -5 = -5 |
-| BICS | `c = bit_clear(0xFFFF, 0x00F0)` | 0xFFFF & ~0x00F0 = 0xFF0F |
-
-### Shift Operations
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| LSLS (immediate) | `c = a << 2` | 5 << 2 = 20 |
-| LSRS (immediate) | `c = a >> 2` | 5 >> 2 = 1 |
-| ASRS (immediate) | `c = ((int32_t)0x80000000) >> 4` | Sign-extended result = 0xF8000000 |
-| LSLS (register) | `c = a << b` | 5 << 3 = 40 |
-| LSRS (register) | `c = a >> b` | 5 >> 3 = 0 |
-| ASRS (register) | `c = ((int32_t)0x80000000) >> b` | Sign-extended result = 0xF0000000 |
-
-### Memory Operations
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| STR | `g_data[0] = 0x12345678` | Memory at g_data[0] contains 0x12345678 |
-| LDR | `c = g_data[1]` | c contains value from g_data[1] |
-| STRB | `g_bytes[0] = 0xAA` | Memory at g_bytes[0] contains 0xAA |
-| LDRB | `c = g_bytes[1]` | c contains byte value from g_bytes[1] |
-| STRH | `g_halfwords[0] = 0xBEEF` | Memory at g_halfwords[0] contains 0xBEEF |
-| LDRH | `c = g_halfwords[1]` | c contains halfword value from g_halfwords[1] |
-
-### Byte Reversal Instructions
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| REV | `c = rev_bytes(0x12345678)` | c = 0x78563412 |
-| REV16 | `c = rev16_bytes(0x12345678)` | c = 0x34127856 |
-| REVSH | `c = rev_sign_extend(0x1234)` | c = 0xFFFF3412 (sign-extended) |
-
-### Extension Instructions
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| SXTB | `c = (int32_t)byte_val` | -5 sign-extended to 32 bits = 0xFFFFFFFB |
-| SXTH | `c = (int32_t)half_val` | -1000 sign-extended to 32 bits = 0xFFFFFC18 |
-| UXTB | `c = (uint32_t)(uint8_t)byte_val` | -5 zero-extended to 32 bits = 0x000000FB |
-| UXTH | `c = (uint32_t)(uint16_t)half_val` | -1000 zero-extended to 32 bits = 0x0000FC18 |
-
-### Branch and Control Flow
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| B (unconditional) | `b loop` | Program jumps to loop label |
-| B (conditional) | `if (a > b) { ... } else { ... }` | Program takes the 'else' branch (since 5 < 7) |
-| BL | `test_func(a, b, &result)` | Program calls test_func and correctly returns |
-
-### Stack Operations
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| PUSH | Inside `multi_param_func` | Stack correctly stores registers |
-| POP | Inside `multi_param_func` | Stack correctly restores registers |
-
-### Compare Instructions
-
-| Instruction | Test Case in test.c | Expected Behavior |
-|-------------|---------------------|-------------------|
-| CMP | `if (a == b)` | Sets flags for a == b comparison (false in this case) |
-| CMN | `if ((a + b) == 12)` | Sets flags for (a + b) == 12 comparison (true in this case) |
-| TST | `if ((a & b) == 5)` | Sets flags for (a & b) == 5 comparison (true in this case) |
 
