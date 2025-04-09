@@ -1,0 +1,77 @@
+LSL (immediate)    
+LSR (immediate)    
+ASR (immediate)    
+ADD (register1)    
+SUB (register)    
+ADD (3-bit immediate)    
+SUB (3-bit immediate)    
+MOV (immediate)    
+CMP (immediate)    
+ADD (8-bit immediate)    
+SUB (8-bit immediate)   
+AND (register)    
+EOR (register)    
+LSL (register)    
+LSR (register)    
+ASR (register)    
+ADC (register)    
+SBC (register)    
+ROR (register)    
+TST (register)    
+RSB (immediate)    
+CMP (register1)    
+CMN (register)    
+ORR (register)    
+MUL    
+BIC (register)    
+MVN (register)   
+ADD (register2)    
+CMP (register2)    
+MOV (register1)    
+BX    
+BLX    
+LDR (PC-relative)    
+STR (register)    
+STRH (register)    
+STRB (register)    
+LDRSB (register)    
+LDR (register)    
+LDRH (register)    
+LDRB (register)    
+LDRSH (register)    
+STR (5-bit immediate)    
+LDR (5-bit immediate)    
+STRB (immediate)    
+LDRB (immediate)    
+STRH (immediate)    
+LDRH (immediate)    
+STR (8-bit immediate)    
+LDR (8-bit immediate)    
+ADR    
+ADD (SP immediate1)    
+ADD (SP immediate2)    
+SUB (SP immediate)    
+SXTH    
+SXTB    
+UXTH    
+UXTB    
+PUSH    
+CPS    
+REV    
+REV16    
+REVSH    
+POP    
+BKPT    
+NOP    
+YIELD    
+WFE    
+WFI    
+SEV    
+STM    
+LDM    
+B (conditional)    
+B (unconditional)    
+MSR    
+MRS    
+BL    
+

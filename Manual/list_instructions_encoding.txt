@@ -1,0 +1,73 @@
+LSL (immediate): 00000 | imm5 | Rm | Rd
+LSR (immediate): 00001 | imm5 | Rm | Rd
+ASR (immediate): 00010 | imm5 | Rm | Rd
+ADD (register1): 0001100 | Rm | Rn | Rd
+SUB (register): 0001101 | Rm | Rn | Rd
+ADD (3-bit immediate): 0001110 | imm3 | Rn | Rd
+SUB (3-bit immediate): 0001111 | imm3 | Rn | Rd
+MOV (immediate): 00100 | Rd | imm8
+CMP (immediate): 00101 | Rn | imm8
+ADD (8-bit immediate): 00110 | Rdn | imm8
+SUB (8-bit immediate): 00111 | Rdn | imm8
+AND (register): 0100000000 | Rm | Rdn
+EOR (register): 0100000001 | Rm | Rdn
+LSL (register): 0100000010 | Rm | Rdn
+LSR (register): 0100000011 | Rm | Rdn
+ASR (register): 0100000100 | Rm | Rdn
+ADC (register): 0100000101 | Rm | Rdn
+SBC (register): 0100000110 | Rm | Rdn
+ROR (register): 0100000111 | Rm | Rdn
+TST (register): 0100001000 | Rm | Rn
+RSB (immediate): 0100001001 | Rn | Rd (Note: immediate is 0)
+CMP (register1): 0100001010 | Rm | Rn
+CMN (register): 0100001011 | Rm | Rn
+ORR (register): 0100001100 | Rm | Rdn
+MUL: 0100001101 | Rn | Rdm (Note: Destination is Rdm=Rm)
+BIC (register): 0100001110 | Rm | Rdn
+MVN (register): 0100001111 | Rm | Rd
+ADD (register2): 01000100 | DN | Rm | Rdn (Note: DN bit combines with Rdn)
+CMP (register2): 01000101 | N | Rm | Rn (Note: N bit combines with Rn)
+MOV (register1): 01000110 | D | Rm | Rd (Note: D bit combines with Rd)
+BX: 010001110 | Rm | 000
+BLX: 010001111 | Rm | 000
+LDR (PC-relative): 01001 | Rt | imm8
+STR (register): 0101000 | Rm | Rn | Rt
+STRH (register): 0101001 | Rm | Rn | Rt
+STRB (register): 0101010 | Rm | Rn | Rt
+LDRSB (register): 0101011 | Rm | Rn | Rt
+LDR (register): 0101100 | Rm | Rn | Rt
+LDRH (register): 0101101 | Rm | Rn | Rt
+LDRB (register): 0101110 | Rm | Rn | Rt
+LDRSH (register): 0101111 | Rm | Rn | Rt
+STR (5-bit immediate): 01100 | imm5 | Rn | Rt
+LDR (5-bit immediate): 01101 | imm5 | Rn | Rt
+STRB (immediate): 01110 | imm5 | Rn | Rt
+LDRB (immediate): 01111 | imm5 | Rn | Rt
+STRH (immediate): 10000 | imm5 | Rn | Rt
+LDRH (immediate): 10001 | imm5 | Rn | Rt
+STR (8-bit immediate): 10010 | Rt | imm8 (Note: SP-relative implied)
+LDR (8-bit immediate): 10011 | Rt | imm8 (Note: SP-relative implied)
+ADR: 10100 | Rd | imm8 (Note: PC-relative ADD)
+ADD (SP immediate1): 10101 | Rd | imm8 (Note: SP = SP + imm8*4)
+ADD (SP immediate2): 101100000 | imm7 (Note: SP = SP + imm7*4)
+SUB (SP immediate): 101100001 | imm7 (Note: SP = SP - imm7*4)
+SXTH: 1011001000 | Rm | Rd
+SXTB: 1011001001 | Rm | Rd
+UXTH: 1011001010 | Rm | Rd
+UXTB: 1011001011 | Rm | Rd
+PUSH: 1011010 | M | Register_list (Note: M bit for LR)
+CPS: 1011011001 | 1 | im | 0 | 0 | 10 (Note: im=0 disable, im=1 enable)
+REV: 1011101000 | Rm | Rd
+REV16: 1011101001 | Rm | Rd
+REVSH: 1011101011 | Rm | Rd
+POP: 1011110 | P | Register_list (Note: P bit for PC)
+BKPT: 10111110 | imm8
+NOP: 1011111100000000
+STM: 11000 | Rn | Register_list
+LDM: 11001 | Rn | Register_list
+B (conditional): 1101 | cond | imm8
+SVC: 11011111 | imm8
+B (unconditional): 11100 | imm11
+MSR: 111100111 | 1000 | SYSm | 1 | Rn (Note: Rn is ignored)
+MRS: 111100111110 | Rd | 1 | SYSm
+BL: 11110 | S | imm10 | 11 | J1 | 1 | J2 | imm11 (32-bit instruction)
